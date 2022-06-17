@@ -32,10 +32,14 @@ def display_img(request):
         last_img = ImageModel.objects.order_by("id").last() 
         #img_gray = cv2.cvtColor(last_img, cv2.COLOR_BGR2GRAY)'
         gray(last_img.img.url)
-        last_img.gray = "gray.jpg"
+        edge(last_img.img.url)
+        last_img.edge = 'edge.jpg'
+        last_img.gray = 'gray.jpg'
         last_img.save()
         return render(request, 'display_image.html', {'last_img' : last_img})
-
+def display_imag_2(request):
+    last_img = ImageModel.objects.order_by("id").last() 
+    return render(request, 'display_image_2.html', {'last_img' : last_img})
 
 
 def home(request):
@@ -50,4 +54,14 @@ def gray(url):
     output = str(settings.BASE_DIR) + "/media/gray.jpg"
 
     cv2.imwrite(output, img_gray)
+
+def edge(url):
+    print(url)
+    path = str(settings.BASE_DIR) + url
+    print(path)
+    img = cv2.imread(path)
+    img_edge = cv2.Canny(img,180,300)
+    output = str(settings.BASE_DIR) + "/media/edge.jpg"
+
+    cv2.imwrite(output, img_edge)
    

@@ -8,3 +8,4 @@ class ImageModel(models.Model):
     author = models.CharField(max_length=100, null=True)
     #アップロードされた画像を処理したもの
     gray = models.ImageField(default='Not Set')
+    edge = models.ImageField(default='Not Set')

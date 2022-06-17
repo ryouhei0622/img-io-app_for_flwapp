@@ -10,9 +10,8 @@
 <div class="container">
     <div class="alert alert-success d-flex justify-content-evenly" role="alert">
         <p class=""><img src='{{ last_img.img.url }}' width="300"></p>
-        <p class=""><img src='{{ last_img.gray.url }}' width="300"></p>
+        <p class=""><img src='{{ last_img.edge.url }}' width="300"></p>
     </div>
-    <a class="btn btn-primary" href="{% url 'display_2' %}" role="button">切り替え</a>
 
 <div class="alert d-flex justify-content-end">
     <a href="{% url 'home' %}" class="btn btn-outline-secondary  " tabindex="-1" role="button" aria-disabled="true">ホーム</a>
